@@ -8,12 +8,15 @@ Ce script permet de préparer la ligne de commande FFmpeg qui pourra découper p
 ```
 python split_audible.py <FILE_IN> <CODE | META_DATA_URL> ["ffmpeg options" [OUTPUT_EXT]]
 ```
-FILE_IN : le fichier que vous avez récupéré (avec VideoDownloadHelper par exemple).
-CODE : le code du livre tel que vous le voyez dans l'URL.
-META_DATA_URL : l'URL qui contient les méta-datas.
-"ffmpegs options" : les options que l'on souhaite utiliser dans ffmpeg. Si non renseigné, l'option utilisée sera "-c copy".
-OUTPUT_EXT : l'extension que l'on souhaite donner aux fichiers de sortie. Si non renseigné, l'extension sera la même que le fichier d'entrée.
+* FILE_IN : le fichier que vous avez récupéré (avec VideoDownloadHelper par exemple).  
+* CODE : le code du livre tel que vous le voyez dans l'URL.  
+* META_DATA_URL : l'URL qui contient les méta-datas.  
+* "ffmpegs options" : les options que l'on souhaite utiliser dans ffmpeg. Si non renseigné, l'option utilisée sera "-c copy".  
+* OUTPUT_EXT : l'extension que l'on souhaite donner aux fichiers de sortie. Si non renseigné, l'extension sera la même que le fichier d'entrée.  
 
+
+Le CODE se trouve en regardant l'URL du livre audio : 
+![url](https://i.imgur.com/AxqPZ7O.png)
 
 Exemple :  
 Pour récupérer le découpage de "Pierre et le loup" qui se trouve à l'URL :
@@ -72,6 +75,7 @@ echo Done!
 - Python 3.7+ (non testé avec les versions précédentes)
 - pip
 - Librairies SSL
+- (pour exécuter la commande générée) FFmpeg
 
 #### Sous Windows
 ##### Python
@@ -99,6 +103,8 @@ pip install pyopenssl
 ```
 - Vous pouvez télécharger [OpenSSL pour Windows](http://gnuwin32.sourceforge.net/packages/openssl.htm). 
 
+##### FFmpeg
+- Téléchargez l'archive qui contient le fichier "ffmpeg.exe" sur le [site officiel](http://ffmpeg.org/download.html).
 
 #### Sous Linux
 Si vous êtes sous Linux, vous n'avez pas besoin de moi pour installer Python, Pip ou SSL...  
