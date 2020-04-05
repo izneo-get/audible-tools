@@ -6,12 +6,12 @@ Scripts pour aider à la gestion des services Audible.
 Ce script permet de préparer la ligne de commande FFmpeg qui pourra découper proprement un livre audio récupéré sur Audible.
 ### Utilisation
 ```
-python split_audible.py <FILE_IN> <CODE | META_DATA_URL> ["ffmpeg options" [OUTPUT_EXT]]
+python split_audible.py <CODE | META_DATA_URL> [FILE_IN ["ffmpeg options" [OUTPUT_EXT]]]
 ```
-* FILE_IN : le fichier que vous avez récupéré (avec VideoDownloadHelper par exemple).  
 * CODE : le code du livre tel que vous le voyez dans l'URL.  
+* FILE_IN : le fichier que vous avez récupéré (avec VideoDownloadHelper par exemple). Si non renseigné, le nom utilisé sera "file_in.mp4".  
 * META_DATA_URL : l'URL qui contient les méta-datas.  
-* "ffmpegs options" : les options que l'on souhaite utiliser dans ffmpeg. Si non renseigné, l'option utilisée sera "-c copy".  
+* "ffmpegs options" : les options que l'on souhaite utiliser dans ffmpeg. Il faut impérativement les mettre entre guillemets. Si non renseigné, l'option utilisée sera "-c copy".  
 * OUTPUT_EXT : l'extension que l'on souhaite donner aux fichiers de sortie. Si non renseigné, l'extension sera la même que le fichier d'entrée.  
 
 
@@ -25,11 +25,11 @@ https://stories.audible.com/pdp/B00TKSFFJE?ref=adbl_ent_anon_ds_pdp_pc_pg-1-cntr
 ```
 en ayant déjà téléchargé le fichier "pierre_et_le_loup.mp4", on exécute :
 ```
-python split_audible.py pierre_et_le_loup.mp4 B00TKSFFJE
+python split_audible.py B00TKSFFJE pierre_et_le_loup.mp4
 ```
 qui est l'équivalent de :
 ```
-python split_audible.py pierre_et_le_loup.mp4 "https://stories.audible.com/audibleapi/1.0/content/B00TKSFFJE/metadata?drm_type=Hls&response_groups=chapter_info" 
+python split_audible.py "https://stories.audible.com/audibleapi/1.0/content/B00TKSFFJE/metadata?drm_type=Hls&response_groups=chapter_info" pierre_et_le_loup.mp4
 ```
 
 Le script retournera :
@@ -51,7 +51,7 @@ echo Done!
 
 Pour faire en sorte que FFmpeg effectue une conversion en MP3 64 kbps, on exécutera :
 ```
-python split_audible.py pierre_et_le_loup.mp4 B00TKSFFJE "-b:a 64k -c:a mp3" mp3
+python split_audible.py B00TKSFFJE pierre_et_le_loup.mp4 "-b:a 64k -c:a mp3" mp3
 ```
 
 Le script retournera :
