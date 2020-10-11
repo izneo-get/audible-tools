@@ -9,7 +9,7 @@ Ce script permet de préparer la ligne de commande FFmpeg qui pourra découper p
 python split_audible.py <CODE | META_DATA_URL> [FILE_IN ["ffmpeg options" [OUTPUT_EXT]]]
 ```
 * CODE : le code du livre tel que vous le voyez dans l'URL.  
-* FILE_IN : le fichier que vous avez récupéré (avec VideoDownloadHelper par exemple). Si non renseigné, le nom utilisé sera "file_in.mp4".  
+* FILE_IN : le fichier que vous avez récupéré (avec VideoDownloadHelper par exemple, ou [m3u_get.py](https://github.com/izneo-get/vimeo-get)). Si non renseigné, le nom utilisé sera "file_in.mp4".  
 * META_DATA_URL : l'URL qui contient les méta-datas.  
 * "ffmpegs options" : les options que l'on souhaite utiliser dans ffmpeg. Il faut impérativement les mettre entre guillemets. Si non renseigné, l'option utilisée sera "-c copy".  
 * OUTPUT_EXT : l'extension que l'on souhaite donner aux fichiers de sortie. Si non renseigné, l'extension sera la même que le fichier d'entrée.  

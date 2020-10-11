@@ -47,9 +47,10 @@ chapters = content['content_metadata']['chapter_info']['chapters']
 
 
 for i, chapter in enumerate(chapters):
+    chap_num = i + 1
     start_ms = str(time.strftime('%H:%M:%S', time.gmtime(chapter['start_offset_ms'] / 1000))) + '.' + f"{(chapter['start_offset_ms'] % 1000):03d}"
     length_ms = str(time.strftime('%H:%M:%S', time.gmtime(chapter['length_ms'] / 1000))) + '.' + f"{(chapter['length_ms'] % 1000):03d}"
-    filename = f"{i:03d} {chapter['title']}.{file_ext}"
+    filename = f"{chap_num:03d} {chapter['title']}.{file_ext}"
     filename = re.sub(r"[^\w\-_\. ']", '_', filename)
     print(f"ffmpeg -i \"{file_in}\" -ss {start_ms} -t {length_ms} {ffmpeg_option} \"{filename}\" && ^")
 
